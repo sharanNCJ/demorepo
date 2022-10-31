@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>calculator</title>
+    <script>
+        var plus, minus, divide, prod, mod;
+        function calculate() {
+            plus = document.calc.operator.options[0];
+            minus = document.calc.operator.options[1];
+            divide = document.calc.operator.options[2];
+            prod = document.calc.operator.options[3];
+            mod = document.calc.operator.options[4];
+            var fir = document.calc.val1.value;
+            var sec = document.calc.val2.value;
+            if ((fir == null) || (fir == "")) {
+                {
+                    alert("enter first number");
+                    fir.focus()
+                }
+            }
+            if ((sec == null) || (sec == "")) {
+                alert("enter second number")
+                sec.focus()
+            }
+            x = parseInt(document.calc.val1.value)
+            y = parseInt(document.calc.val2.value)
+            if (plus.selected)
+                document.calc.answer.value = x + y
+            if (minus.selected)
+                document.calc.answer.value = x - y
+            if (divide.selected)
+                document.calc.answer.value = x / y
+            if (prod.selected)
+                document.calc.answer.value = x * y
+            if (mod.selected)
+                document.calc.answer.value = x % y
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Calculator</h2>
+    <form name="calc">
+        <input type=text name=val1 size=10>
+        <select name=operator>
+            <option value=plus>+
+            <option value=minus>-
+            <option value=divide>/
+            <option value=prod>*
+            <option value=mod>%
+        </select>
+        <input type=text name=val2 size=10>
+        <input type=text name=answer readonly size=10>
+        <input type=button value=answer onClick="calculate()">
+    </form>
+</body>
+
+</html>
